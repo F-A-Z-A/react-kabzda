@@ -16,10 +16,6 @@ function App() {
     
     <UncontrolledRating/>
     {/*<Rating value={3}/>*/}
-    
-    
-    {/*<PageTitle title={"This is APP component"}/>*/}
-    {/*<PageTitle title={"My friends"}/>*/}
   </div>
 }
 
