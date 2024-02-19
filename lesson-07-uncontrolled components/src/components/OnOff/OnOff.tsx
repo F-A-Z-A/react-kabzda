@@ -6,7 +6,7 @@ export type OnOffPropsType = {
 
 export const OnOff = (props: OnOffPropsType) => {
   
-  console.log("OnOff rendering")
+  console.log("UncontrolledOnOff rendering")
   
   const [on, setOn] = useState(false)
   console.log("on: " + on)
