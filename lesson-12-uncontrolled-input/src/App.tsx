@@ -3,13 +3,6 @@ import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
-import {Select} from "./components/Select/Select";
-
-const arr = [
-  {value: 1, title: "Andrey"},
-  {value: 2, title: "luda"},
-  {value: 3, title: "Sergey"},
-]
 
 function App() {
   console.log("APP rendering")
@@ -18,9 +11,6 @@ function App() {
   let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
   let [switchOn, setSwitchOn] = useState<boolean>(false)
   
-  const onClick = () => console.log("Click Function onClick")
-  const onChange = () => console.log("Click Function onChange")
-  
   return <div className={"App"}>
     <OnOff on={switchOn} onChange={setSwitchOn}/>
     
@@ -28,16 +18,12 @@ function App() {
       titleValue={"Control"}
       collapsed={accordionCollapsed}
       onChange={() => setAccordionCollapsed(!accordionCollapsed)}
-      onClick={onClick}
-      items={arr}
     />
     
     <Rating
       value={ratingValue}
       onClick={setRatingValue}
     />
-    
-    <Select onChange={onChange} items={arr}/>
     
     <br/> <br/> <br/>
     
