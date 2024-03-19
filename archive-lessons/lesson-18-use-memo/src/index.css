@@ -1,0 +1,63 @@
+body {
+  background-color: #bebebe;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  cursor: pointer;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+
+.buttonOnOn {
+  background-color: #29c900;
+  color: #fff;
+}
+
+.buttonOffOff {
+  background-color: #fff;
+  color: #000;
+}
+
+.circleOn {
+  background-color: #29c900;
+  color: #29c900;
+  display: inline-block;
+  width: 21px;
+  border-radius: 50%;
+}
+
+.buttonOnOff {
+  background-color: #fff;
+  color: #000;
+}
+
+.buttonOffOn {
+  background-color: #c90000;
+  color: #fff;
+}
+
+.circleOff {
+  background-color: #c90000;
+  color: #c90000;
+  display: inline-block;
+  width: 21px;
+  border-radius: 50%;
+}
+
+.buttonOnOn,
+.buttonOffOff,
+.buttonOnOff,
+.buttonOffOn {
+  display: inline-block;
+  width: 75px;
+  text-align: center;
+}
+
