@@ -1,5 +1,5 @@
 import {action} from "@storybook/addon-actions"
-import {Accordion} from "./Accordion";
+import {Accordion, AccordionRM} from "./Accordion";
 import React, {useState} from "react";
 
 export default {
@@ -34,7 +34,7 @@ export const UsersUncollapsedMode = () => {
 }
 export const ModeChanged = () => {
   const [value, setValue] = useState<boolean>(true)
-  return <Accordion
+  return <AccordionRM
     collapsed={value}
     titleValue={"Users"}
     onChange={() => setValue(!value)}
