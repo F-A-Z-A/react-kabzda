@@ -8,14 +8,14 @@ const Counter = (props: { count: number }) => {
   console.log("Counter")
   return <div>{props.count}</div>
 }
+const CounterRM = React.memo(Counter)
 
 const Users = (props: { users: string[] }) => {
   console.log("Users")
   return <div>{props.users.map((u, i) => <div key={i}>{u}</div>)}</div>
 }
-
 const UsersRM = React.memo(Users)
-const CounterRM = React.memo(Counter)
+
 
 export const Example = () => {
   const [counter, setCounter] = useState(0);
