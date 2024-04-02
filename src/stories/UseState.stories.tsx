@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 export default {
-  title: "useState Demo"
+  title: "UseState Demo"
 }
 
 function generateData() {
