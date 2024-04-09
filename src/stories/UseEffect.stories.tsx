@@ -62,20 +62,22 @@ export const SetTimeoutExample = () => {
 
 export const ClockExample = () => {
   
-  const hours = new Date().getHours()
-  const minutes = new Date().getMinutes()
-  const seconds = new Date().getSeconds()
-  
-  const [second, setSecond] = useState(seconds);
+  const [time, setTime] = useState({hour: 0, minute: 0, second: 0});
   
   useEffect(() => {
     setInterval(() => {
-      setSecond(s => s < 59 ? s + 1 : 0)
+      const currentTime = new Date();
+      setTime({
+        hour: currentTime.getHours(),
+        minute: currentTime.getMinutes(),
+        second: currentTime.getSeconds(),
+      })
     }, 1000)
   }, []);
   
-  
   return <>
-    <span>{hours} : {minutes} : {second}</span>
+    <span>
+      {time.hour < 10 ? `0${time.hour}` : time.hour} : {time.minute < 10 ? `0${time.minute}` : time.minute} : {time.second < 10 ? `0${time.second}` : time.second}
+    </span>
   </>
 }
