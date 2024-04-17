@@ -1,16 +1,15 @@
-import {ClockDigital} from "./ClockDigital";
+import {Clock} from "./Clock";
 import React from "react";
-import {ClockAnalog} from "./ClockAnalog";
 
 export default {
   title: "Clock",
-  component: ClockDigital
+  component: Clock
 }
 
-export const Digital = () => {
-  return <ClockDigital/>
+export const BaseAnalogExample = () => {
+  return <Clock mode={"analog"}/>
 };
 
-export const Analog = () => {
-  return <ClockAnalog/>
+export const BaseDigitalExample = () => {
+  return <Clock mode={"digital"}/>
 };

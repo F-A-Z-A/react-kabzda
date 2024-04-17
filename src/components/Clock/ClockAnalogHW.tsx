@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 type PropsType = {}
 
-export const ClockAnalog: React.FC<PropsType> = () => {
+export const ClockAnalogHW: React.FC<PropsType> = () => {
   const [time, setTime] = useState(new Date());
   
   useEffect(() => {
     const timer = setInterval(() => {
-      console.log("TICK");
+      console.log("TICK Analog");
       setTime(new Date());
     }, 1000);
     return () => {
