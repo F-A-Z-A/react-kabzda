@@ -1,66 +1,63 @@
-import React, {useState} from 'react';
-import './App.css';
-import {Accordion} from "./components/Accordion/Accordion";
-import {Rating, RatingValueType} from "./components/Rating/Rating";
-import {OnOff} from "./components/OnOff/OnOff";
-import {Select} from "./components/Select/Select";
+import React from "react";
+import "./App.css";
 
-const arr = [
-  {value: 1, title: "Andrey"},
-  {value: 2, title: "luda"},
-  {value: 3, title: "Sergey"},
-]
-
-function App() {
-  console.log("APP rendering")
-  
-  let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
-  let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
-  let [switchOn, setSwitchOn] = useState<boolean>(false)
-  
-  const onClick = (value: any) => console.log(`${value}: Click onClick`)
-  const onChange = () => console.log("Click onChange")
-  
-  return <div className={"App"}>
-    <OnOff on={switchOn} onChange={setSwitchOn}/>
-    
-    <Accordion
-      titleValue={"Control"}
-      collapsed={accordionCollapsed}
-      onChange={() => setAccordionCollapsed(!accordionCollapsed)}
-      onClick={onClick}
-      items={arr}
-    />
-    
-    <Rating
-      value={ratingValue}
-      onClick={setRatingValue}
-    />
-    
-    <Select
-      onChange={onChange}
-      items={arr}
-      value={"111"}
-    />
-    
-    <br/> <br/> <br/>
-    
-    {/*<UncontrolledOnOff onChange={setSwitchOn}/>*/}
-    {/*{switchOn.toString()}*/}
-    
-    {/*<UncontrolledAccordion titleValue={"UnControl"}/>*/}
-    
-    {/*<UncontrolledRating/>*/}
-  </div>
+export function App() {
+  console.log("App rendering");
+  return (
+    <>
+      <AppTitle />
+      <Rating />
+      <Accordion />
+      <Rating />
+    </>
+  );
 }
 
-type PageTitlePropsType = {
-  title: string
+function AppTitle() {
+  console.log("AppTitle rendering");
+  return <>APP component</>;
 }
 
-function PageTitle(props: PageTitlePropsType) {
-  console.log("PageTitle render")
-  return <h1>{props.title}</h1>
+function Rating() {
+  console.log("Rating rendering");
+  return (
+    <>
+      <Star />
+      <Star />
+      <Star />
+      <Star />
+      <Star />
+    </>
+  );
 }
 
-export default App;
+function Accordion() {
+  console.log("Accordion rendering");
+  return (
+    <>
+      <AccordionTitle />
+      <AccordionBody />
+    </>
+  );
+}
+
+function AccordionTitle() {
+  console.log("AccordionTitle rendering");
+  return <h3>Меню</h3>;
+}
+
+function AccordionBody() {
+  console.log("AccordionBody rendering");
+  return (
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  );
+}
+
+function Star() {
+  console.log("Star rendering");
+  return <div>STAR</div>;
+}
