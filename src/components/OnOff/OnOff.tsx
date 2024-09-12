@@ -8,13 +8,13 @@ export function OnOff() {
     <div style={{ display: "flex" }}>
       <button
         onClick={() => setOn(true)}
-        style={{ width: "50px", background: on ? "green" : "white", marginLeft: "10px" }}
+        style={{ cursor: "pointer", width: "50px", background: on ? "green" : "white", marginLeft: "10px" }}
       >
         <b>ON</b>
       </button>
       <button
         onClick={() => setOn(false)}
-        style={{ width: "50px", background: on ? "white" : "red", marginLeft: "10px" }}
+        style={{ cursor: "pointer", width: "50px", background: on ? "white" : "red", marginLeft: "10px" }}
       >
         <b>OFF</b>
       </button>

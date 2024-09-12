@@ -33,29 +33,13 @@ function Star(props: StarPropsType) {
   const onClickHandler = () => {
     props.onClickValueHandler(props.value);
   };
-  if (props.selected) {
-    return (
-      <span style={{ cursor: "pointer" }} onClick={onClickHandler}>
-        <b>STAR </b>
-      </span>
-    );
-  } else {
-    return (
-      <span style={{ cursor: "pointer" }} onClick={onClickHandler}>
-        STAR{" "}
-      </span>
-    );
-  }
+  return props.selected ? (
+    <span style={{ cursor: "pointer" }} onClick={onClickHandler}>
+      <b>STAR </b>
+    </span>
+  ) : (
+    <span style={{ cursor: "pointer" }} onClick={onClickHandler}>
+      STAR{" "}
+    </span>
+  );
 }
-
-// {/*<button onClick={() => setValue(0)}>*</button>*/}
-// {/*<Star selected={value > 0} />*/}
-// {/*<button onClick={() => setValue(1)}>*</button>*/}
-// {/*<Star selected={value > 1} />*/}
-// {/*<button onClick={() => setValue(2)}>*</button>*/}
-// {/*<Star selected={value > 2} />*/}
-// {/*<button onClick={() => setValue(3)}>*</button>*/}
-// {/*<Star selected={value > 3} />*/}
-// {/*<button onClick={() => setValue(4)}>*</button>*/}
-// {/*<Star selected={value > 4} />*/}
-// {/*<button onClick={() => setValue(5)}>*</button>*/}
