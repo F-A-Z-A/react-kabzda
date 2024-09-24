@@ -7,15 +7,15 @@ type AccordionPropsType = {
 export function UncontrolledAccordion(props: AccordionPropsType) {
   console.log("Accordion rendering");
 
-  let [collapsed, setCollapsed] = useState(false);
+  let [collapsed, setCollapsed] = useState<boolean>(false);
 
-  const onClickTitleHandler = (value: boolean) => {
-    setCollapsed(value);
+  const onClickTitleHandler = () => {
+    setCollapsed(!collapsed);
   };
 
   return (
     <>
-      <AccordionTitle title={props.title} onClickTitleHandler={onClickTitleHandler} collapsed={collapsed} />
+      <AccordionTitle title={props.title} onClick={onClickTitleHandler} collapsed={collapsed} />
       {!collapsed && <AccordionBody />}
     </>
   );
@@ -23,14 +23,14 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
 
 type AccordionTitlePropsType = {
   title: string;
-  onClickTitleHandler: (value: boolean) => void;
+  onClick: () => void;
   collapsed: boolean;
 };
 
 function AccordionTitle(props: AccordionTitlePropsType) {
   console.log("AccordionTitle rendering");
   const onClickHandler = () => {
-    props.onClickTitleHandler(!props.collapsed);
+    props.onClick();
   };
   return (
     <h3 onClick={onClickHandler} style={{ cursor: "pointer" }}>

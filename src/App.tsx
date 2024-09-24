@@ -1,28 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { OnOff } from "./components/OnOff/OnOff";
 import { UncontrolledAccordion } from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import { Rating } from "./components/Rating/Rating";
 import { UncontrolledRating } from "./components/UncontrolledRating/UncontrolledRating";
+import { Accordion } from "./components/Accordion/Accordion";
+import { UncontrolledOnOff } from "./components/UncontrolledOnOff/UncontrolledOnOff";
+
+export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5;
 
 export function App() {
+  const [ratingValue, setRatingValue] = useState<RatingValueType>(3);
+  const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
+  const [on, setOn] = useState<boolean>(true);
   console.log("App rendering");
   return (
     <>
       {/*<PageTitle title={"APP component"} />*/}
       {/*<PageTitle title={"My friends"} />*/}
-      {/*<Accordion title={"Menu"} collapsed={true} />*/}
-      {/*<Accordion title={"Users"} collapsed={false} />*/}
+      <hr />
+      Accordion
+      <Accordion title={"Menu"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed} />
+      <hr />
+      UncontrolledAccordion
       <UncontrolledAccordion title={"Menu"} />
       <UncontrolledAccordion title={"Users"} />
+      <hr />
+      Rating
+      <Rating value={ratingValue} onClick={setRatingValue} />
+      <hr />
+      UncontrolledRating
       <UncontrolledRating />
-      {/*<Rating value={0} />*/}
-      {/*<Rating value={1} />*/}
-      {/*<Rating value={2} />*/}
-      {/*<Rating value={3} />*/}
-      {/*<Rating value={4} />*/}
-      {/*<Rating value={5} />*/}
-      <OnOff />
-      {/*<OnOff />*/}
+      <hr />
+      OnOff
+      <OnOff on={on} onClick={setOn} />
+      <hr />
+      UncontrolledOnOff
+      <UncontrolledOnOff />
     </>
   );
 }

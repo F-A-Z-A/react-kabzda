@@ -1,22 +1,20 @@
-type OnOffType = {
-  on: boolean;
-  onClick: (value: boolean) => void;
-};
+import { useState } from "react";
 
-export function OnOff(props: OnOffType) {
-  console.log("OnOff rendering");
+export function UncontrolledOnOff() {
+  console.log("UncontrolledOnOff rendering");
+  const [on, setOn] = useState(true);
 
   return (
     <div style={{ display: "flex" }}>
       <button
-        onClick={() => props.onClick(true)}
-        style={{ cursor: "pointer", width: "50px", background: props.on ? "green" : "white", marginLeft: "10px" }}
+        onClick={() => setOn(true)}
+        style={{ cursor: "pointer", width: "50px", background: on ? "green" : "white", marginLeft: "10px" }}
       >
         <b>ON</b>
       </button>
       <button
-        onClick={() => props.onClick(false)}
-        style={{ cursor: "pointer", width: "50px", background: props.on ? "white" : "red", marginLeft: "10px" }}
+        onClick={() => setOn(false)}
+        style={{ cursor: "pointer", width: "50px", background: on ? "white" : "red", marginLeft: "10px" }}
       >
         <b>OFF</b>
       </button>
@@ -24,7 +22,7 @@ export function OnOff(props: OnOffType) {
         style={{
           width: "30px",
           height: "30px",
-          background: props.on ? "green" : "red",
+          background: on ? "green" : "red",
           display: "inline-block",
           borderRadius: "50%",
           marginLeft: "10px",
