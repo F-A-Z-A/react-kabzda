@@ -14,28 +14,31 @@ export function App() {
   const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
   const [on, setOn] = useState<boolean>(true);
   console.log("App rendering");
+  const accordionCollapsedHandler = () => {
+    setAccordionCollapsed(!accordionCollapsed);
+  };
   return (
     <>
       {/*<PageTitle title={"APP component"} />*/}
       {/*<PageTitle title={"My friends"} />*/}
       <hr />
-      Accordion
-      <Accordion title={"Menu"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed} />
+      - Accordion -
+      <Accordion title={"Menu"} collapsed={accordionCollapsed} onChange={accordionCollapsedHandler} />
       <hr />
-      UncontrolledAccordion
+      - UncontrolledAccordion -
       <UncontrolledAccordion title={"Menu"} />
       <UncontrolledAccordion title={"Users"} />
       <hr />
-      Rating
+      - Rating -
       <Rating value={ratingValue} onClick={setRatingValue} />
       <hr />
-      UncontrolledRating
+      - UncontrolledRating -
       <UncontrolledRating />
       <hr />
-      OnOff
-      <OnOff on={on} onClick={setOn} />
+      - OnOff -
+      <OnOff on={on} onChange={setOn} />
       <hr />
-      UncontrolledOnOff
+      - UncontrolledOnOff -
       <UncontrolledOnOff />
     </>
   );
