@@ -27,7 +27,7 @@ export function App() {
       <hr />
       - UncontrolledAccordion -
       <UncontrolledAccordion title={"Menu"} />
-      <UncontrolledAccordion title={"Users"} />
+      {/*<UncontrolledAccordion title={"Users"} />*/}
       <hr />
       - Rating -
       <Rating value={ratingValue} onClick={setRatingValue} />

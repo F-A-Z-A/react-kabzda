@@ -24,7 +24,7 @@ type AccordionTitlePropsType = {
 function AccordionTitle(props: AccordionTitlePropsType) {
   console.log("AccordionTitle rendering");
   return (
-    <h3 onClick={props.onChange} style={{ cursor: "pointer" }}>
+    <h3 onClick={(event) => props.onChange()} style={{ cursor: "pointer" }}>
       -- {props.title} --
     </h3>
   );

@@ -31,12 +31,3 @@ export function UncontrolledOnOff() {
     </div>
   );
 }
-
-const nameAgeMap: Record<string, number> = {
-  Alice: 21,
-  Bob: 25,
-  Charlie: 30,
-};
-
-console.log(nameAgeMap.Alice); // 21
-console.log(nameAgeMap.Bob); // 25
