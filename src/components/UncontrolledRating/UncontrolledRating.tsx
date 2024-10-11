@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 type RatingPropsType = {
-  // value: 0 | 1 | 2 | 3 | 4 | 5;
+  value?: 0 | 1 | 2 | 3 | 4 | 5;
 };
 
 type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5;
 
 export function UncontrolledRating(props: RatingPropsType) {
   console.log("Rating rendering");
-  const [value, setValue] = useState<RatingValueType>(0);
+  const [value, setValue] = useState<RatingValueType>(props.value ? props.value : 0);
   const onClickValueHandler = (value: RatingValueType) => {
     setValue(value);
   };

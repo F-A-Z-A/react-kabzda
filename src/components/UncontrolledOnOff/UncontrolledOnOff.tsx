@@ -1,8 +1,12 @@
 import { useState } from "react";
 
-export function UncontrolledOnOff() {
+type UncontrolledOnOffType = {
+  defaultOn?: boolean;
+};
+
+export function UncontrolledOnOff(props: UncontrolledOnOffType) {
   console.log("UncontrolledOnOff rendering");
-  const [on, setOn] = useState(true);
+  const [on, setOn] = useState<boolean>(props.defaultOn ? props.defaultOn : false);
 
   return (
     <div style={{ display: "flex" }}>
