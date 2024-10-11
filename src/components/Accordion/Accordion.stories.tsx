@@ -3,6 +3,7 @@ import { useState } from "react";
 import { action } from "@storybook/addon-actions";
 
 export default {
+  title: "Accordion",
   component: Accordion,
 };
 
@@ -18,23 +19,23 @@ export default {
 //   },
 // };
 
-const onChangeHandler = action("onChange");
+const onChangeHandler = action("accordion mode changed");
 
 export const CollapsedAccordion = () => {
   return <Accordion title={"CollapsedAccordion"} collapsed={true} onChange={onChangeHandler} />;
 };
 
 export const OpenedAccordion = () => {
-  return <Accordion title={"OpenedAccordion"} collapsed={false} onChange={() => {}} />;
+  return <Accordion title={"OpenedAccordion"} collapsed={false} onChange={onChangeHandler} />;
 };
 
 export const AccordionDemo = () => {
-  const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
-  return (
-    <Accordion
-      title={"AccordionDemo"}
-      collapsed={accordionCollapsed}
-      onChange={() => setAccordionCollapsed(!accordionCollapsed)}
-    />
-  );
+  const [value, setValue] = useState<boolean>(false);
+
+  const callback = () => {
+    setValue(!value);
+    onChangeHandler();
+  };
+
+  return <Accordion title={"AccordionDemo"} collapsed={value} onChange={callback} />;
 };
