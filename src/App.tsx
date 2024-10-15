@@ -17,13 +17,22 @@ export function App() {
   const accordionCollapsedHandler = () => {
     setAccordionCollapsed(!accordionCollapsed);
   };
+  const onClick = (value: any) => {
+    console.log(value);
+  };
   return (
     <>
       {/*<PageTitle title={"APP component"} />*/}
       {/*<PageTitle title={"My friends"} />*/}
       <hr />
       - Accordion -
-      <Accordion title={"Menu"} collapsed={accordionCollapsed} onChange={accordionCollapsedHandler} />
+      <Accordion
+        title={"Menu"}
+        collapsed={accordionCollapsed}
+        onChange={accordionCollapsedHandler}
+        items={[]}
+        onClick={onClick}
+      />
       <hr />
       - UncontrolledAccordion -
       <UncontrolledAccordion title={"Menu"} />

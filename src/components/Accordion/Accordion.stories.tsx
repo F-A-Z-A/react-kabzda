@@ -19,14 +19,39 @@ export default {
 //   },
 // };
 
+const users = [
+  { title: "AAA", value: "111" },
+  { title: "BBB", value: "222" },
+  { title: "CCC", value: "333" },
+  { title: "DDD", value: "444" },
+];
+
 const onChangeHandler = action("accordion mode changed");
 
+const onClickCallback = action("some item was clicked");
+
 export const CollapsedAccordion = () => {
-  return <Accordion title={"CollapsedAccordion"} collapsed={true} onChange={onChangeHandler} />;
+  return (
+    <Accordion
+      title={"CollapsedAccordion"}
+      collapsed={true}
+      onChange={onChangeHandler}
+      items={[]}
+      onClick={onClickCallback}
+    />
+  );
 };
 
 export const OpenedAccordion = () => {
-  return <Accordion title={"OpenedAccordion"} collapsed={false} onChange={onChangeHandler} />;
+  return (
+    <Accordion
+      title={"OpenedAccordion"}
+      collapsed={false}
+      onChange={onChangeHandler}
+      items={users}
+      onClick={onClickCallback}
+    />
+  );
 };
 
 export const AccordionDemo = () => {
@@ -37,5 +62,13 @@ export const AccordionDemo = () => {
     onChangeHandler();
   };
 
-  return <Accordion title={"AccordionDemo"} collapsed={value} onChange={callback} />;
+  return (
+    <Accordion
+      title={"AccordionDemo"}
+      collapsed={value}
+      onChange={callback}
+      items={users}
+      onClick={(value) => console.log(value)}
+    />
+  );
 };
