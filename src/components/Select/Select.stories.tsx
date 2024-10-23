@@ -1,29 +1,38 @@
+import React, { useState } from "react";
 import { Select } from "./Select";
-import { action } from "@storybook/addon-actions";
-import { useState } from "react";
 
 export default {
   title: "Select",
   component: Select,
 };
 
-const users = [
-  { title: "null", value: 0 },
-  { title: "AAA", value: 1 },
-  { title: "BBB", value: 2 },
-  { title: "CCC", value: 3 },
-  { title: "DDD", value: 4 },
-];
+export const WithValue = () => {
+  const [value, setValue] = useState("2");
 
-const onChangeHandler = action("select changed");
+  return (
+    <Select
+      value={value}
+      onChange={setValue}
+      items={[
+        { value: "1", title: "Minsk" },
+        { value: "2", title: "Moscow" },
+        { value: "3", title: "Tumen" },
+      ]}
+    />
+  );
+};
 
-export const ControlledSelect = () => {
-  const [value, setValue] = useState(0);
-
-  const onChange = (value: any) => {
-    setValue(value);
-    onChangeHandler();
-  };
-
-  return <Select value={value} onChange={onChange} items={users} />;
+export const WithoutValue = () => {
+  const [value, setValue] = useState(null);
+  return (
+    <Select
+      value={value}
+      onChange={setValue}
+      items={[
+        { value: "1", title: "Minsk" },
+        { value: "2", title: "Moscow" },
+        { value: "3", title: "Tumen" },
+      ]}
+    />
+  );
 };
