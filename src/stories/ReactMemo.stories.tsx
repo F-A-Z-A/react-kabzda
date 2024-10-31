@@ -31,7 +31,6 @@ export const Example1 = () => {
 
   return (
     <>
-      {console.log("Example1 rendered")}
       <button onClick={() => setCounter(counter + 1)}>+ count</button>
       <button onClick={addUser}>+ user</button>
       <NewMassagesCounter count={counter} />
