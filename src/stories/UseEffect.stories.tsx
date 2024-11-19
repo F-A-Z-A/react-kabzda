@@ -35,3 +35,30 @@ export const SimpleExample = () => {
     </>
   );
 };
+
+export const SetTimeoutExample = () => {
+  console.log("SetTimeoutExample rendering");
+
+  const [hour, setHour] = useState<string>("00");
+  const [minutes, setMinutes] = useState<string>("00");
+  const [seconds, setSeconds] = useState<string>("00");
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const hour = new Date().getHours().toString();
+      const minutes = new Date().getMinutes().toString();
+      const seconds = new Date().getSeconds().toString();
+
+      setHour(hour.length < 2 ? "0" + hour : hour);
+      setMinutes(minutes.length < 2 ? "0" + minutes : minutes);
+      setSeconds(seconds.length < 2 ? "0" + seconds : seconds);
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <div>
+      Time: {hour}:{minutes}:{seconds}
+    </div>
+  );
+};
