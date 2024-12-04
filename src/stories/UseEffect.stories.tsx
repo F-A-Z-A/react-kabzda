@@ -36,7 +36,7 @@ export const SimpleExample = () => {
   );
 };
 
-export const SetTimeoutExample = () => {
+export const SetIntervalExample = () => {
   console.log("SetTimeoutExample rendering");
 
   const [hour, setHour] = useState<string>("00");
@@ -53,6 +53,7 @@ export const SetTimeoutExample = () => {
       setMinutes(minutes.length < 2 ? "0" + minutes : minutes);
       setSeconds(seconds.length < 2 ? "0" + seconds : seconds);
     }, 1000);
+    console.log(intervalId);
     return () => clearInterval(intervalId);
   }, []);
 
@@ -61,4 +62,45 @@ export const SetTimeoutExample = () => {
       Time: {hour}:{minutes}:{seconds}
     </div>
   );
+};
+
+export const ResetEffectExample = () => {
+  console.log(" Component rendering");
+
+  const [counter, setCounter] = useState(1);
+
+  useEffect(() => {
+    console.log("Effect occurred", counter);
+
+    return () => {
+      console.log("RESET Effect", counter);
+    };
+  }, [counter]);
+
+  return (
+    <>
+      <div>Count: {counter}</div>
+      <button onClick={() => setCounter(counter + 1)}>+ count</button>
+    </>
+  );
+};
+
+export const KeysTrackerExample = () => {
+  const [text, setText] = useState("");
+
+  console.log(" Component rendering - ", text);
+
+  useEffect(() => {
+    const handler = (e: any) => {
+      console.log(e.key);
+      setText(text + e.key);
+    };
+    document.addEventListener("keypress", handler);
+
+    return () => {
+      document.removeEventListener("keypress", handler);
+    };
+  }, [text]);
+
+  return <>text: {text}</>;
 };
